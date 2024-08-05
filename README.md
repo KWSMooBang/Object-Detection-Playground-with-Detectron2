@@ -1,2 +1,5 @@
 # Detectron2-Clone
-Repository for studying facebookresearch's detectron2 code by clone coding
+Repository for object detection study with Detectron 2
+
+## Reference
+https://github.com/facebookresearch/detectron2/tree/main
