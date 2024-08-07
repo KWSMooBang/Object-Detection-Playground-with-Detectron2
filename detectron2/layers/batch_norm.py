@@ -4,6 +4,7 @@ import torch.nn.functional as F
 
 from torch import nn
 
+from .wrappers import BatchNorm2d
 
 class FrozenBatchNorm2d(nn.Module):
     """
@@ -137,3 +138,27 @@ class FrozenBatchNorm2d(nn.Module):
                 if new_child is not child:
                     res.add_module(name, new_child)
         return res
+
+
+def get_norm(norm, out_channels):
+    """
+    Args:
+        norm (str or callable): either one of BN, SyncBN, FrozenBN, GN
+            or a callable that takes a channel number and returns
+            the normalization layer as a nn.Module
+    
+    Returns:
+        nn.Module or None: the normalization layer
+    """
+    
+    if norm is None:
+        return None
+    if isinstance(norm, str):
+        if len(norm) == 0:
+            return None
+        norm = {
+            'BN': BatchNorm2d,
+            'FrozenBN': FrozenBatchNorm2d,
+            'nnSyncBN': nn.SyncBatchNorm
+        }[norm]
+    return norm(out_channels)

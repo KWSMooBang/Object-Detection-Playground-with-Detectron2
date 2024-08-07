@@ -1,5 +1,6 @@
 from .batch_norm import (
-    FrozenBatchNorm2d
+    FrozenBatchNorm2d,
+    get_norm
 )
 
 from .shape_spec import (

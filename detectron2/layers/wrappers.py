@@ -35,7 +35,7 @@ class Conv2d(torch.nn.Conv2d):
             x = self.norm(x)
         if self.activation is not None:
             x = self.acitvation(x)
-            
+
         return x
     
 ConvTranspose2d = torch.nn.ConvTranspose2d
