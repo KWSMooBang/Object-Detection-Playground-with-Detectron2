@@ -10,3 +10,7 @@ from .wrappers import (
     interpolate,
     Linear
 )
+
+from .blocks import (
+    CNNBlockBase
+)
