@@ -2,6 +2,9 @@ from .batch_norm import (
     FrozenBatchNorm2d
 )
 
+from .shape_spec import (
+    ShapeSpec
+)
 
 from .wrappers import (
     BatchNorm2d,
