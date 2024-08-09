@@ -1,6 +1,6 @@
 
 from .backbone import Backbone
-
+from .fpn import FPN
 from .resnet import (
     BasicStem,
     ResNet,
