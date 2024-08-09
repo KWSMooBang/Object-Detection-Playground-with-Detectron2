@@ -12,6 +12,7 @@ from detectron2.layers import (
 )
 
 from .backbone import Backbone
+from .build import BACKBONE_REGISTRY
 from .resnet import build_resnet_backbone
 
 __all__ = [
@@ -210,6 +211,7 @@ class LastLevelP6P7(nn.Module):
         return [p6, p7]
 
 
+@BACKBONE_REGISTRY.register()
 def build_resnet_fpn_backbone(cfg, input_shape: ShapeSpec):
     """
     Args:

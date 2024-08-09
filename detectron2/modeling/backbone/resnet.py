@@ -13,6 +13,7 @@ from detectron2.layers import (
 )
 
 from .backbone import Backbone
+from .build import BACKBONE_REGISTRY
 
 __all__ = [
     'BasicBlock',
@@ -425,7 +426,7 @@ ResNetBlockBase = CNNBlockBase
 def make_stage(*args, **kwargs):
     return ResNet.make_stage(*args, **kwargs)
 
-
+@BACKBONE_REGISTRY.register()
 def build_resnet_backbone(cfg, input_shape):
     norm = cfg.MODEL.RESNETS.NORM
     stem = BasicStem(
